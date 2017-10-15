@@ -1,4 +1,6 @@
-<form action='/reviews/#{@review.id}' method='POST'>
+<h1>Edit this review</h1>
+
+<form action='/reviews/<%= @review.id %>' method='POST'>
 <input type="hidden" name="_method" value="PUT">
-<input type="review" name="review" value="#{@review.review}">
+<input type="text" name="review[review]" value="<%= @review.review %>">
 <input type="submit" value="Edit">

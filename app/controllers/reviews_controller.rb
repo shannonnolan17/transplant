@@ -30,8 +30,12 @@ end
 
 put '/reviews/:id' do
   @review = Review.find(params[:id])
-  @review.update_attributes(params[:review])
-  redirect "/reviews/#{@review.id}"
+  @review.assign_attributes(params[:review])
+  if @review.save
+    redirect "/reviews/#{@review.id}"
+  else
+    erb :'reviews/edit'
+  end
 end
 
 delete '/reviews/:id' do
