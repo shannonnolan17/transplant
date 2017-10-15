@@ -1,8 +1,10 @@
+#new
 get '/sessions/new' do
   @user = User.new()
   erb :'sessions/new'
 end
 
+#create
 post '/sessions' do
   p "*" * 100
   p params
@@ -16,7 +18,8 @@ post '/sessions' do
   end
 end
 
-delete '/sessions' do
+#delete
+delete '/sessions/:id' do
   session[:id] = nil
   redirect '/'
 end

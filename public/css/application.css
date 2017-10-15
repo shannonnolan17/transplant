@@ -3,3 +3,34 @@
   padding: 5px 5px 5px 5px;
   font-family: arial;
 }
+
+#nav {
+  text-align: left;
+  border-style: solid;
+  border-width: 2px;
+  padding: 20px;
+}
+
+#new_user {
+  text-align: left;
+  border: solid;
+  padding: 20px;
+  font-weight: bold;
+}
+
+#login {
+  text-align: left;
+  border: solid;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  border: solid;
+  padding: 20px;
+}
+
+.list {
+  margin-left: 40px;
+}

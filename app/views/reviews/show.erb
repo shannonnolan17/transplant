@@ -1,8 +1,9 @@
 <h1>Review</h1>
-<p><%= @review.review %> </p>
+<h3><%= @review.title %> </h3>
+<p><%= @review.description %></p>
 
 <a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
 
 <form action='/reviews/<%= @review.id %>' method='POST'>
-<input type="hidden" name="_method" value='PUT'>
+<input type="hidden" name="_method" value='DELETE'>
 <input type="submit" value="Delete Review">

@@ -2,5 +2,6 @@
 
 <form action='/reviews/<%= @review.id %>' method='POST'>
 <input type="hidden" name="_method" value="PUT">
-<input type="text" name="review[review]" value="<%= @review.review %>">
+<input type="text" name="review[title]" value="<%= @review.title %>">
+<input type="text" name="review[description]" value="<%= @review.description %>">
 <input type="submit" value="Edit">
