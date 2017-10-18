@@ -1,10 +1,12 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+
   validates :first_name, :email, :password, presence: true
   validates :email, uniqueness: true
-#more associations?
+
   has_many :reviews
+  has_many :favorited_reviews, class_name: :ReviewUser, foreign_key: :user_id
   has_many :organizations, :through => :reviews
 
   include BCrypt
