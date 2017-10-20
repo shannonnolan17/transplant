@@ -1,13 +1,10 @@
-#new
 get '/sessions/new' do
   @user = User.new()
   erb :'sessions/new'
 end
 
-#create
+
 post '/sessions' do
-  p "*" * 100
-  p params
   @user = User.find_by_email(params[:email])
     if @user && @user.password == params[:password]
       session[:id] = @user.id
@@ -18,7 +15,6 @@ post '/sessions' do
   end
 end
 
-#delete
 delete '/sessions/:id' do
   session[:id] = nil
   redirect '/'

@@ -1,15 +1,14 @@
-#all
 get '/users' do
   erb :'users/index'
 end
 
-#new
+
 get '/users/new' do
   @user = User.new()
   erb :'users/new'
 end
 
-#create
+
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
@@ -21,7 +20,6 @@ post '/users' do
   end
 end
 
-#one user
 get '/users/:id'do
   @user = User.find(params[:id])
   erb :'users/show'

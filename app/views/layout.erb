@@ -19,16 +19,16 @@
 </head>
 <body>
   <nav id ="nav">
-<a href="/users/new">Register here</a>
+<a id="registration_link" href="/users/new">Register here</a>
 <% if logged_in? %>
   <form action="/sessions/<%= @current_user.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Logout">
   </form>
 <% else %>
-  <a href="/sessions/new">Login here</a>
+  <a id="login_link" href="/sessions/new">Login here</a>
 <% end %>
-<a href="/">Home</a>
+<a id="home_link" href="/">Home</a>
 </nav>
   <%= erb :'_errors' %>
   <%= yield %>

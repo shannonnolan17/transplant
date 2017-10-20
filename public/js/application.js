@@ -1,7 +1,35 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  showingAllReviews();
+
 });
+
+var showingAllReviews = function() {
+$('#all_reviews_link').on("click", function(e) {
+  e.preventDefault();
+
+var review_link = $(this);
+
+var url = review_link.attr('href');
+
+$.ajax({
+  url: url
+}).done(function(response) {
+  $('#review-container').append(response);
+}).fail(function(error) {
+  alert("Something went wrong");
+});
+});
+};
+
+var creatingNewReview = function() {
+  $('#new_review_link').on("click", function(e) {
+    e.preventDefault();
+
+
+  })
+}
+
+
+
+

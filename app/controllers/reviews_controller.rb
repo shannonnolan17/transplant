@@ -1,11 +1,15 @@
 get '/reviews' do
   @reviews = Review.all
-  erb :'reviews/index'
+  if request.xhr?
+    erb :"reviews/index", layout: false
+  else
+    erb :'reviews/index'
+  end
 end
 
 get '/reviews/new' do
   @review = Review.new()
-  erb :'reviews/new'
+  erb :"tasks/new"
 end
 
 post '/reviews' do
