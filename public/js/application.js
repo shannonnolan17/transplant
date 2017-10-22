@@ -32,9 +32,10 @@ var showNewReviewForm = function() {
   var reviewLink = $(this);
 
   var url = reviewLink.attr("href")
+  console.log(url)
 
   $.ajax({
-    url: url
+    url: url,
   }).done(function(response){
     $('#review-form-container').append(response)
   }).fail(function(error){
@@ -61,7 +62,7 @@ var submitNewReview = function() {
     data: data
   }).done(function(response){
     console.log(response)
-    $('#review-container').append(response);
+    $('.list').append(response);
     form.trigger("reset");
     $('.errors').remove();
   }).fail(function(response) {

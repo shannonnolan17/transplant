@@ -72,4 +72,33 @@
 
 #favorite-button {
   color: black;
+  display: inline;
+}
+
+.description {
+  font-family: helvetica;
+  font-size: 24px;
+  text-align: center;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #b3ffb3;
+}
+
+#delete {
+  display: block;
+  text-align: left;
+  color: black;
+}
+
+#edit {
+  display: block;
+  text-align: right;
+  color: black;
+
 }

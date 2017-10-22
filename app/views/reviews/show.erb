@@ -1,13 +1,15 @@
-<h1>Review</h1>
-<h3><%= @review.title %> </h3>
-<p><%= @review.description %></p>
+<h1 class="title"><%= @review.title %> </h1>
+<p class='description'><%= @review.description %></p>
 
-<a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
 
-<form action='/reviews/<%= @review.id %>' method='POST'>
-<input type="hidden" name="_method" value='DELETE'>
-<input type="submit" value="Delete Review">
-</form>
+<footer>
+  <a id="edit" class="links" href="/reviews/<%= @review.id %>/edit">Edit Review</a>
+
+  <form id="delete" class="links" action='/reviews/<%= @review.id %>' method='POST'>
+    <input type="hidden" name="_method" value='DELETE'>
+    <input type="submit" value="Delete Review">
+  </form>
+</footer>
 
 <form id="favorite-button" action='/users/<%= current_user.id %>/reviews' method='POST'>
   <input type="submit" value="+">
