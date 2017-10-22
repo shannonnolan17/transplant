@@ -7,8 +7,9 @@
 <form action='/reviews/<%= @review.id %>' method='POST'>
 <input type="hidden" name="_method" value='DELETE'>
 <input type="submit" value="Delete Review">
+</form>
 
-<form>
-  <input type="submit" value="⭐️">
+<form id="favorite-button" action='/users/<%= current_user.id %>/reviews' method='POST'>
+  <input type="submit" value="+">
 </form>
 

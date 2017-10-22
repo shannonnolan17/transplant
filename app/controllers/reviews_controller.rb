@@ -9,16 +9,29 @@ end
 
 get '/reviews/new' do
   @review = Review.new()
-  erb :"tasks/new"
+  if request.xhr?
+    erb :'reviews/new', layout: false
+  else
+    erb :"reviews/new"
+  end
 end
 
 post '/reviews' do
   @review = Review.new(params[:review])
   if @review.save
-    redirect "/reviews/#{@review.id}"
+    if request.xhr?
+      erb :'reviews/new', layout: false, locals: { review: review}
+    else
+      redirect "/reviews/#{@review.id}"
+    end
   else
     @errors = @review.errors.full_messages
-    erb :'reviews/new'
+    if request.xhr?
+      status 422
+      erb :'_errors', layout: false
+    else
+      erb :'reviews/new'
+    end
   end
 end
 

@@ -15,20 +15,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Transplant</title>
 </head>
 <body>
   <nav id ="nav">
+<a id="home_link" href="/">Transplant</a>
 <a id="registration_link" href="/users/new">Register here</a>
 <% if logged_in? %>
   <form action="/sessions/<%= @current_user.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Logout">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Logout">
   </form>
 <% else %>
   <a id="login_link" href="/sessions/new">Login here</a>
 <% end %>
-<a id="home_link" href="/">Home</a>
 </nav>
   <%= erb :'_errors' %>
   <%= yield %>

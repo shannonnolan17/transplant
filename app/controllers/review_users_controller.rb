@@ -7,12 +7,17 @@ end
 get '/users/:user_id/reviews/new' do
   @user = User.find(params[:user_id])
   erb :'reviews/new'
-
 end
 
 post '/users/:user_id/reviews' do
   @user = User.find(params[:user_id])
   @review = @user.reviews.new(params[:review])
+  if request.xhr?
+    content_type :json
+    ({id: @review.id, user: @user.id}.to_json)
+  else
+    redirect "/"
+  end
   if @review.save
     redirect "/users/#{@user.id}/reviews"
   else

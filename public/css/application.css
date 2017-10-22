@@ -49,3 +49,7 @@
   border: solid;
   border-width: 2px;
 }
+
+#favorite-button {
+  color: black;
+}

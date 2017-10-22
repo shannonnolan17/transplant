@@ -1,5 +1,3 @@
-<h1>All the reviews</h1>
-
 <ul class="list">
   <% @reviews.each do |review| %>
     <li><a href="/reviews/<%= review.id %>"><%= review.title %></a></li>
@@ -7,4 +5,3 @@
 </ul>
 
 
-<a id='new_review_link' href="/reviews/new">Create new review</a>
