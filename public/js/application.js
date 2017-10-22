@@ -16,7 +16,7 @@ var review_link = $(this);
 var url = review_link.attr('href');
 
 $.ajax({
-  url: url
+  url: url,
 }).done(function(response) {
   $('#review-container').append(response);
 }).fail(function(error) {
@@ -48,7 +48,10 @@ var submitNewReview = function() {
   $('#review-form-container').on("click", '#new_review_form', function(e){
     e.preventDefault();
 
+  var form = $(this)
+
   var url = $(this).attr('action');
+  console.log(url)
   var method = $(this).attr('method');
   var data = $(this).serialize();
 
@@ -59,8 +62,11 @@ var submitNewReview = function() {
   }).done(function(response){
     console.log(response)
     $('#review-container').append(response);
+    form.trigger("reset");
+    $('.errors').remove();
   }).fail(function(response) {
-    console.log(response);
+    $('.errors').remove();
+    form.before(response.responseText)
   });
 });
 };

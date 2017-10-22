@@ -18,17 +18,19 @@
   <title>Transplant</title>
 </head>
 <body>
-  <nav id ="nav">
-<a id="home_link" href="/">Transplant</a>
-<a id="registration_link" href="/users/new">Register here</a>
-<% if logged_in? %>
-  <form action="/sessions/<%= @current_user.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Logout">
-  </form>
-<% else %>
-  <a id="login_link" href="/sessions/new">Login here</a>
-<% end %>
+<nav id ="nav">
+  <ul class = "nav-bar">
+    <li id="transplant"><a href="/">Transplant</a></li>
+    <li><a href="/users/new">Register here</a></li>
+    <% if logged_in? %>
+      <li><form action="/sessions/<%= @current_user.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout">
+      </form></li>
+    <% else %>
+      <li><a href="/sessions/new">Login here</a></li>
+    <% end %>
+  </ul>
 </nav>
   <%= erb :'_errors' %>
   <%= yield %>

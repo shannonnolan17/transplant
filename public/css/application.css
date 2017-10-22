@@ -1,15 +1,43 @@
-* {
-  margin: 10px auto;
-  padding: 2px 2px 2px 2px;
-  font-family: arial;
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00802b;
 }
 
-#nav {
-  text-align: left;
-  border-style: solid;
-  border-width: 2px;
-  padding: 10px;
+.nav-bar li {
+  float: left;
 }
+
+#transplant {
+  font-family: Georgia;
+  font-size: 20px;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  margin-top: 2px;
+  text-decoration: none;
+}
+
+.title{
+  text-align: center;
+  font-family: helvetica;
+  font-size: 70px;
+  color: #003300;
+
+}
+
+.sub-title{
+  display: block;
+  text-align: center;
+  font-family: helvetica;
+}
+
 
 #new_user {
   text-align: left;
@@ -25,29 +53,21 @@
   font-weight: bold;
 }
 
-.title {
-  text-align: center;
-  border: solid;
-  padding: 20px;
-}
 
 .list {
   margin-left: 40px;
 }
 
-#registration_link {
+#review-container {
+  text-align: left;
   border: solid;
-  border-width: 2px;
+  padding: 20px;
 }
 
-#login_link {
-  border: solid;
-  border-width: 2px;
-}
-
-#home_link {
-  border: solid;
-  border-width: 2px;
+#review-title {
+  padding: 20px;
+  font-family: arial;
+  font-size: 30px;
 }
 
 #favorite-button {

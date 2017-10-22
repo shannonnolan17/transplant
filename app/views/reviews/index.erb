@@ -1,6 +1,6 @@
 <ul class="list">
   <% @reviews.each do |review| %>
-    <li><a href="/reviews/<%= review.id %>"><%= review.title %></a></li>
+    <%= erb :"reviews/_show", layout: false, locals: { review: review } %>
   <% end %>
 </ul>
 

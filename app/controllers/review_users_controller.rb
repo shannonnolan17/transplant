@@ -9,19 +9,24 @@ get '/users/:user_id/reviews/new' do
   erb :'reviews/new'
 end
 
-post '/users/:user_id/reviews' do
-  @user = User.find(params[:user_id])
+post '/users/:id/reviews' do
+  @user = User.find(params[:id])
+  #add a new review to user, shovel??
   @review = @user.reviews.new(params[:review])
-  if request.xhr?
-    content_type :json
-    ({id: @review.id, user: @user.id}.to_json)
-  else
-    redirect "/"
-  end
   if @review.save
-    redirect "/users/#{@user.id}/reviews"
+    if request.xhr?
+      erb :'reviews/_show', layout: false, locals: { review: @review}
+    else
+      redirect "/"
+    end
   else
-    erb :'reviews/new'
+    if request.xhr?
+      status 422
+      @errors = @review.errors.full_messages
+      erb :'_errors', layout: false
+    else
+      erb :'reviews/new'
+    end
   end
 end
 
