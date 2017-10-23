@@ -61,11 +61,11 @@
 #review-container {
   text-align: left;
   border: solid;
-  padding: 20px;
+  padding: 10px;
 }
 
 #review-title {
-  padding: 20px;
+  padding: 10px;
   font-family: arial;
   font-size: 30px;
 }

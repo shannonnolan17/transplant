@@ -34,3 +34,11 @@ describer User do
   end
 
 end
+
+describer User do
+  let (:nil_user) { User.new(:first_name "", :last_name "", email: "", password: "") }
+
+  describe "validations" do
+    expect(nil_user.save).to be be_an_instance_of "error"
+  end
+end

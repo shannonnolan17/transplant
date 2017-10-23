@@ -1,17 +1,16 @@
-get '/users/:user_id/reviews' do
-  @user = User.find(params[:user_id])
+get '/users/:id/reviews' do
+  @user = User.find(params[:id])
   @reviews = @user.reviews
   erb :'reviews/index'
 end
 
-get '/users/:user_id/reviews/new' do
-  @user = User.find(params[:user_id])
+get '/users/:id/reviews/new' do
+  @user = User.find(params[:id])
   erb :'reviews/new'
 end
 
 post '/users/:id/reviews' do
   @user = User.find(params[:id])
-  #add a new review to user, shovel??
   @review = @user.reviews.new(params[:review])
   if @review.save
     if request.xhr?
@@ -30,14 +29,14 @@ post '/users/:id/reviews' do
   end
 end
 
-get '/users/:user_id/reviews/:id' do
-  @user = User.find(params[:user_id])
+get '/users/:id/reviews/:id' do
+  @user = User.find(params[:id])
   @review = @user.reviews.find(params[:id])
   erb :'reviews/show'
 end
 
-delete '/users/:user_id/reviews/:id' do
-  @user = User.find(params[:user_id])
+delete '/users/:id/reviews/:id' do
+  @user = User.find(params[:id])
   @review = @user.reviews.find(params[:id])
   @review.destroy
   redirect '/users/#{@user.id}/reviews'

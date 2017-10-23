@@ -88,7 +88,7 @@ var favoriteButton = function() {
   }).done(function(response){
     console.log(response)
   }).fail(function(error) {
-    alert("Something went wrong!")
+    console.log(error);
   });
   });
 }
