@@ -1,5 +1,104 @@
-* {
-  margin: 10px auto;
-  padding: 5px 5px 5px 5px;
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #00802b;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+#transplant {
+  font-family: Georgia;
+  font-size: 20px;
+}
+
+.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  margin-top: 2px;
+  text-decoration: none;
+}
+
+.title{
+  text-align: center;
+  font-family: helvetica;
+  font-size: 70px;
+  color: #003300;
+
+}
+
+.sub-title{
+  display: block;
+  text-align: center;
+  font-family: helvetica;
+}
+
+
+#new_user {
+  text-align: left;
+  border: solid;
+  padding: 20px;
+  font-weight: bold;
+}
+
+#login {
+  text-align: left;
+  border: solid;
+  padding: 20px;
+  font-weight: bold;
+}
+
+
+.list {
+  margin-left: 40px;
+}
+
+#review-container {
+  text-align: left;
+  border: solid;
+  padding: 10px;
+}
+
+#review-title {
+  padding: 10px;
   font-family: arial;
+  font-size: 30px;
+}
+
+#favorite-button {
+  color: black;
+  display: inline;
+}
+
+.description {
+  font-family: helvetica;
+  font-size: 24px;
+  text-align: center;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #b3ffb3;
+}
+
+#delete {
+  display: block;
+  text-align: left;
+  color: black;
+}
+
+#edit {
+  display: block;
+  text-align: right;
+  color: black;
+
 }

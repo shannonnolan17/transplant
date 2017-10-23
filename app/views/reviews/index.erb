@@ -1,7 +1,7 @@
-<h1>All the reviews</h1>
-
-<ul>
+<ul class="list">
   <% @reviews.each do |review| %>
-    <li><%= review.review %></li>
+    <%= erb :"reviews/_show", layout: false, locals: { review: review } %>
   <% end %>
 </ul>
+
+

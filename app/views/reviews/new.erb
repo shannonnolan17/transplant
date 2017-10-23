@@ -1,3 +1,8 @@
-<form action='/reviews' method='POST'>
-<input type="text" name="review[review]" placehold="Review">
+<form id="new_review_form" action='/users/<%= current_user.id %>/reviews' method='POST'>
+<label>Title:</label>
+<input type="text" name="review[title]" placeholder="Title"><br>
+<label>Review:</label>
+<input type="text" name="review[description]" placeholder="Review"><br>
 <input type="submit" value="Create New Review">
+</form>
+
