@@ -1,3 +1,7 @@
+before /users\/\d/  do
+  redirect '/sessions/new' unless logged_in?
+end
+
 get '/users' do
   erb :'users/index'
 end
