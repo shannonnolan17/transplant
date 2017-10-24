@@ -11,7 +11,9 @@
   </form>
 </footer>
 
-<form id="favorite-button" action='/users/<%= current_user.id %>/reviews' method='POST'>
-  <input type="submit" value="+">
+<form id="favorite-button" action='/reviews/<%= @review.id %>' method='POST'>
+  <input type="hidden" name="_method" value="PUT">
+  <input type="hidden" name="favorite" value="true">
+  <input type="submit" value="+++">
 </form>
 
