@@ -17,6 +17,8 @@ gem 'dotenv'
 gem 'httparty'
 gem 'yelp'
 
+gem "http"
+
 gem 'shotgun', '~>0.9.1'
 
 group :test do

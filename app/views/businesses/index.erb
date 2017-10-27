@@ -1,0 +1,13 @@
+<div>
+  <ul>
+    <% @businesses.each do |business| %>
+      <li><%= business.name %></li>
+      <p><%= business.rating %> stars</p>
+      <p><%= business.street_address %>
+      <p>-<%= business.city %>, <%= business.state %></p>
+      <p><img src='<%= business.image_url %>'width="300" height="200"></p>
+
+    <% end %>
+
+  </ul>
+</div>

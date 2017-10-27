@@ -10,7 +10,12 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+
 require 'yelp'
+
+require "json"
+require "http"
+require "optparse"
 
 require 'pg'
 require 'active_record'
@@ -50,10 +55,11 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 require APP_ROOT.join('config', 'database')
 
 
+API_HOST = "https://api.yelp.com"
+TOKEN_PATH = "/oauth2/token"
+GRANT_TYPE = "client_credentials"
+SEARCH_PATH = "/v3/businesses/search"
+BUSINESS_PATH = "/v3/businesses/"
 
-client = Yelp::Client.new({
-  consumer_key: ENV['CLIENT_ID'],
-  consumer_secret: ENV['YELP_API'],
-  token: 'token',
-  token_secret: 'token_secret'
-})
+
+
