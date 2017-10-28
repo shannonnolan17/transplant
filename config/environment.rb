@@ -11,6 +11,12 @@ require 'rubygems'
 require 'uri'
 require 'pathname'
 
+require 'yelp'
+
+require "json"
+require "http"
+require "optparse"
+
 require 'pg'
 require 'active_record'
 require 'logger'
@@ -21,6 +27,8 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'pry-byebug'
 # require 'user_spec'
+
+require 'dotenv/load'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -45,3 +53,13 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+
+API_HOST = "https://api.yelp.com"
+TOKEN_PATH = "/oauth2/token"
+GRANT_TYPE = "client_credentials"
+SEARCH_PATH = "/v3/businesses/search"
+BUSINESS_PATH = "/v3/businesses/"
+
+
+

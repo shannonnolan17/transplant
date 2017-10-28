@@ -13,6 +13,12 @@ gem 'activerecord', '~>5.1.2'
 gem 'rake'
 gem 'bcrypt'
 
+gem 'dotenv'
+gem 'httparty'
+gem 'yelp'
+
+gem "http"
+
 gem 'shotgun', '~>0.9.1'
 
 group :test do

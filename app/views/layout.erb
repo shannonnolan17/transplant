@@ -26,9 +26,11 @@
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout">
       </form></li>
+
+      <li><a href="/users/<%= current_user.id %>">Profile</a></li>
     <% else %>
 
-      <li><a href="/sessions/new">Login here</a></li>
+      <li><a id="login-link" href="/sessions/new">Login here</a></li>
     <% end %>
 
   </ul>

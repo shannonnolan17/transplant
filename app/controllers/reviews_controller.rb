@@ -9,10 +9,14 @@ end
 
 get '/reviews/new' do
   @review = Review.new()
-  if request.xhr?
-    erb :'reviews/new', layout: false
+  if logged_in?
+    if request.xhr?
+      erb :'reviews/new', layout: false
+    else
+      erb :"reviews/new"
+    end
   else
-    erb :"reviews/new"
+    redirect '/sessions/new'
   end
 end
 
@@ -47,11 +51,17 @@ end
 
 put '/reviews/:id' do
   @review = Review.find(params[:id])
-  @review.assign_attributes(params[:review])
-  if @review.save
-    redirect "/reviews/#{@review.id}"
+  if request.xhr?
+    if params[:favorite] == true
+      current_user.reviews << @review
+    end
   else
-    erb :'reviews/edit'
+    @review.assign_attributes(params[:review])
+    if @review.save
+      redirect "/reviews/#{@review.id}"
+    else
+      erb :'reviews/edit'
+    end
   end
 end
 

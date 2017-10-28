@@ -32,7 +32,6 @@ var showNewReviewForm = function() {
   var reviewLink = $(this);
 
   var url = reviewLink.attr("href")
-  console.log(url)
 
   $.ajax({
     url: url,
@@ -46,7 +45,7 @@ var showNewReviewForm = function() {
 }
 
 var submitNewReview = function() {
-  $('#review-form-container').on("click", '#new_review_form', function(e){
+  $('#review-form-container').on("submit", '#new_review_form', function(e){
     e.preventDefault();
 
   var form = $(this)
@@ -77,20 +76,25 @@ var favoriteButton = function() {
     e.preventDefault();
 
   var favoriteButton = $(this);
-  favoriteButton.css('color', '#008000')
 
   var url = favoriteButton.attr("action");
   var method = favoriteButton.attr("method");
+  var data = favoriteButton.serialize();
 
   $.ajax({
     url: url,
-    method: method
+    method: method,
+    data: data
   }).done(function(response){
-    console.log(response)
+  favoriteButton.css('color', '#008000')
+
   }).fail(function(error) {
-    console.log(error);
+    console.log("something went wrong");
   });
   });
 }
 
+// var showLoginForm = function() {
+//   $("#nav").on("click", "#login-link")
+// }
 
