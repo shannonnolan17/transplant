@@ -3,7 +3,7 @@ get '/businesses/new' do
   erb :'businesses/new'
 end
 
-get '/businesses/:term' do
+get '/businesses' do
   @businesses = Business.all
   erb :'businesses/index'
 end
